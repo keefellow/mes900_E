@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>
+   Response to Data Collection 
+  </title>
+<head>
+
+<body onload="onloading()">
+<h1 id ="Title">Response to Data Collection </h1>
+
+
+
+<div class="grid-container">
+  <div class="grid-item">Name</div>
+  <div class="grid-item">  <input id="name" rows="1" cols="20"></input>
+</div>
+  <div class="grid-item">Tag</div>
+  <div class="grid-item">  <input id="code" rows="1" cols="20"></input>
+</div>
+  <div class="grid-item">Notes</div>
+  <div class="grid-item"><textarea id="text" rows="5" cols="25"></textarea></div>
+  <div class="grid-item"><input type="button" onclick="submit()" value="Submit"></input></div> 
+
+</body>
+
+<style type="text/css">
+textarea {
+   font-size: 20pt;
+   font-family: "Helvetica Neue" 
+} 
+input {
+   font-size: 20pt;
+   font-family: "Helvetica Neue"
+} 
+
+.grid-container {
+  display: grid;
+  grid-template-columns: auto;
+  font-family: "Helvetica Neue" 
+}
+.grid-item {
+  font-size: 30px;
+  text-align: left;
+}
+
+h1{
+  font-family: "Helvetica Neue" 
+}
+
+html { 
+  height: 100%;
+  width: 100%; 
+}  
+  
+</style>
+
+<script>
+
+
+function submit(){
+  name = document.getElementById("name").value;
+  code = document.getElementById("code").value;
+  text = document.getElementById("text").value;
+
+    document.getElementById("code").value = "";
+    document.getElementById("text").value = "";
+  
+  var url = "https://docs.google.com/forms/d/e/1FAIpQLScG1xS4KKSKF5veRMRMSaLWKfh5dFyWZF4WIQfYENgJi282_g/formResponse?entry.2041570754="+name+"&entry.235028126="+code+"&entry.483564924="+text+"&submit=Submit";
+  fetch(url);
+}
+
+</script>
